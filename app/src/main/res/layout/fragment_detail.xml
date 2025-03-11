@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_fragment"
+    tools:context=".ui.fragments.detail.DetailFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <AutoCompleteTextView
+            android:id="@+id/ed_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_ed_search"
+            android:drawableLeft="@drawable/ic_search"
+            android:drawablePadding="@dimen/eight_dp"
+            android:hint="@string/search_shop"
+            android:paddingVertical="@dimen/fourteen_dp"
+            android:paddingStart="@dimen/sixteen_dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/img_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/twenty_four_dp"
+            android:layout_marginTop="@dimen/three_dp"
+            android:background="@drawable/bg_detail_img"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/six_dp"
+            app:layout_constraintTop_toBottomOf="@id/ed_search">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/img_main"
+                android:layout_width="@dimen/two_hundred_fifty_dp"
+                android:layout_height="@dimen/one_hundred_ninety_dp"
+                android:layout_margin="@dimen/fourteen_dp"
+                android:src="@drawable/img_1" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/boardTab"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/twelve_dp"
+                app:tabGravity="center"
+                app:tabIndicatorHeight="@dimen/zero_dp"
+                app:tabMode="fixed"
+                app:tabPaddingBottom="@dimen/zero_dp"
+                app:tabPaddingEnd="@dimen/zero_dp"
+                app:tabPaddingStart="@dimen/zero_dp"
+                app:tabPaddingTop="@dimen/zero_dp" />
+
+        </LinearLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:elevation="@dimen/forty_dp"
+            android:background="@drawable/bg_detail_container"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/twenty_dp"
+            app:layout_constraintTop_toBottomOf="@id/img_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_marginTop="@dimen/fourteen_dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="@dimen/eighteen_sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="@string/hutork_900g"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/img_star"
+                android:layout_marginStart="@dimen/twenty_four_dp"
+                app:layout_constraintBottom_toBottomOf="@id/txt_name"
+                app:layout_constraintTop_toTopOf="@id/txt_name"
+                app:layout_constraintStart_toEndOf="@id/txt_name"
+                android:src="@drawable/ic_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txt_desc"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twelve_sp"
+                android:text="@string/desc"
+                app:layout_constraintTop_toBottomOf="@id/txt_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            
+            <TextView
+                android:id="@+id/txt_weight"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/twenty_dp"
+                app:layout_constraintTop_toBottomOf="@id/txt_desc"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twelve_sp"
+                android:text="@string/weight_900g"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/txt_expiration"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_weight"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twelve_sp"
+                android:text="@string/experation_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/txt_cooking_method"
+                android:text="@string/cooking_method"
+                android:textSize="@dimen/twelve_sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/txt_expiration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/txt_price"
+                android:layout_marginStart="@dimen/eight_dp"
+                android:textSize="@dimen/twelve_sp"
+                android:textColor="@color/black"
+                android:text="@string/price"
+                android:layout_marginTop="@dimen/twenty_dp"
+                app:layout_constraintTop_toBottomOf="@id/txt_cooking_method"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txt_count"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/eight_dp"
+                android:layout_marginTop="@dimen/eighteen_dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sixteen_sp"
+                android:text="@string/in_stock"
+                app:layout_constraintTop_toBottomOf="@id/txt_price"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            
+            <TextView
+                android:id="@+id/count"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/four_dp"
+                app:layout_constraintStart_toEndOf="@id/txt_count"
+                app:layout_constraintBottom_toBottomOf="@id/txt_count"
+                app:layout_constraintTop_toTopOf="@id/txt_count"
+                android:textSize="@dimen/sixteen_sp"
+                android:textColor="@color/blue"
+                android:text="@string/_537"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/choose_shop"
+                android:textSize="@dimen/sixteen_sp"
+                android:layout_marginTop="@dimen/twelve_dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/count"
+                android:text="@string/choose_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txt_pay_with"
+                android:layout_marginTop="@dimen/thirty_six_dp"
+                app:layout_constraintTop_toBottomOf="@id/choose_shop"
+                app:layout_constraintEnd_toEndOf="@id/choose_shop"
+                app:layout_constraintStart_toStartOf="@id/choose_shop"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="@dimen/eighteen_sp"
+                android:text="@string/pay_with"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:text="@string/cash"
+                android:textColor="@color/green"
+                android:layout_marginBottom="@dimen/thirty_dp"
+                app:buttonTint="@color/blue"
+                app:layout_constraintTop_toBottomOf="@id/txt_pay_with"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_radio_debt"
+                android:id="@+id/btn_radio_cash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:text="@string/debt"
+                android:textColor="@color/red"
+                app:buttonTint="@color/blue"
+                app:layout_constraintStart_toEndOf="@id/btn_radio_cash"
+                app:layout_constraintTop_toBottomOf="@id/txt_pay_with"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/btn_radio_debt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:id="@+id/container"
+                android:gravity="center"
+                android:paddingVertical="@dimen/four_dp"
+                app:layout_constraintTop_toBottomOf="@id/btn_radio_debt"
+                android:layout_marginTop="@dimen/four_dp"
+                android:background="@drawable/bg_rv_linear"
+                app:layout_constraintStart_toStartOf="@id/btn_radio_cash"
+                app:layout_constraintEnd_toEndOf="@id/btn_radio_debt"
+                android:orientation="horizontal"
+                android:layout_width="@dimen/zero_dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:id="@+id/btn_plus"
+                    android:src="@drawable/ic_plus"
+                    android:layout_width="@dimen/twenty_dp"
+                    android:layout_height="@dimen/twenty_dp"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:id="@+id/co"
+                    android:layout_marginHorizontal="@dimen/fourteen_dp"
+                    android:textSize="@dimen/twelve_sp"
+                    android:textColor="@color/black"
+                    android:text="@string/_50"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:id="@+id/btn_minus"
+                    android:src="@drawable/ic_minus"
+                    android:layout_width="@dimen/twenty_dp"
+                    android:layout_height="@dimen/twenty_dp"/>
+
+            </LinearLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_request"
+                app:cornerRadius="@dimen/twelve_dp"
+                android:layout_marginTop="@dimen/twelve_dp"
+                android:backgroundTint="@color/gray"
+                android:inputType="text"
+                android:text="@string/request"
+                android:drawableRight="@drawable/ic_request"
+                app:layout_constraintTop_toBottomOf="@id/container"
+                app:layout_constraintEnd_toEndOf="@id/container"
+                app:layout_constraintStart_toStartOf="@id/container"
+                android:layout_width="@dimen/zero_dp"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

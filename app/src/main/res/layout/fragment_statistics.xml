@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_fragment"
+    tools:context=".ui.fragments.bottom_nav.statistics.StatisticsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/six_dp"
+            android:text="@string/statistic"
+            android:textColor="@color/black"
+            android:textSize="@dimen/twenty_sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/all_cities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/thirty_dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/eight_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Все города"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_down" />
+        </LinearLayout>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/calendarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/twenty_dp"
+            app:cardCornerRadius="@dimen/twenty_dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:strokeColor="@color/light_gray"
+            app:strokeWidth="@dimen/one_dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/twelve_dp"
+                android:padding="@dimen/eight_dp"
+                android:text="@string/calendar"
+                android:textColor="@color/black" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChart"
+            android:layout_width="@dimen/three_hundred_dp"
+            android:layout_height="@dimen/three_hundred_dp"
+            android:layout_marginTop="@dimen/sixteen_dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/all_cities" />
+
+        <LinearLayout
+            android:id="@+id/legendContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sixteen_dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pieChart">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/ten_dp"
+                android:text="@string/income"
+                android:textColor="@color/blue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/ten_dp"
+                android:text="@string/expenditure"
+                android:textColor="@color/yellow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/ten_dp"
+                android:text="@string/debt_tv"
+                android:textColor="@color/red" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sixteen_dp"
+            android:text="@string/bonus"
+            android:textColor="@color/green"
+            app:layout_constraintEnd_toEndOf="@id/legendContainer"
+            app:layout_constraintStart_toStartOf="@id/legendContainer"
+            app:layout_constraintTop_toBottomOf="@id/legendContainer" />
+
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sixteen_dp"
+            android:text="@string/date"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_bonus" />
+
+
+        <TextView
+            android:id="@+id/income"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/twelve_dp"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:text="@string/txt_income"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/twenty_sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDate" />
+
+
+        <TextView
+            android:id="@+id/txt_all_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/twelve_dp"
+            android:text="@string/all_count"
+            android:textColor="@color/black"
+            android:textSize="@dimen/twelve_sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/income"
+            app:layout_constraintStart_toEndOf="@id/income"
+            app:layout_constraintTop_toTopOf="@id/income" />
+
+
+        <TextView
+            android:id="@+id/txt_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/six_dp"
+            android:text="@string/_966_products"
+            android:textColor="@color/black"
+            android:textSize="@dimen/twelve_sp"
+            app:layout_constraintBottom_toBottomOf="@id/txt_all_count"
+            app:layout_constraintStart_toEndOf="@id/txt_all_count"
+            app:layout_constraintTop_toTopOf="@id/txt_all_count" />
+
+        <View
+            android:id="@+id/view_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/one_dp"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:background="@color/light_gray"
+            app:layout_constraintTop_toBottomOf="@id/income" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_income"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/view_1"
+            tools:listitem="@layout/item_income" />
+
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/twelve_dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/rv_income">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remains"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/fourteen_sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/four_dp"
+                android:text="@string/toybos"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fourteen_sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_marginTop="@dimen/sixteen_dp"
+                android:background="@color/light_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sixteen_dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/expenses"
+                    android:textColor="@color/yellow"
+                    android:textSize="@dimen/twenty_sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_145_000_c"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen_sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@color/light_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sixteen_dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/debt_st"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/sixteen_sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_245_000_c"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen_sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@color/light_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sixteen_dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/repaid_debt"
+                    android:textColor="@color/light_green"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/sixteen_sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_45_000_c"
+                    android:textSize="@dimen/sixteen_sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@color/light_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sixteen_dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bonuses"
+                    android:textColor="@color/green"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/sixteen_sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_245_000_c"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen_sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@color/light_gray" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sixteen_dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_balance"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/twenty_four_sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_602_000_c"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/twenty_sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/one_dp"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:background="@color/light_gray" />
+
+        </LinearLayout>
+
+        <Button
+            app:layout_constraintEnd_toEndOf="parent"
+            android:inputType="text"
+            android:id="@+id/calculateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue"
+            android:paddingHorizontal="@dimen/forty_two_dp"
+            android:text="@string/сalculation"
+            android:textSize="@dimen/sixteen_sp"
+            app:cornerRadius="@dimen/twenty_dp"
+            android:layout_marginBottom="@dimen/twenty_four_dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/container" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
